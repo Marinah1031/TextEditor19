@@ -14,14 +14,18 @@ window.addEventListener('beforeinstallprompt', (event) => {
 });
 
 // TODO: Implement a click event handler on the `butInstall` element
+//adds a click event listener to the butInstall element. when the button is clicked, the code inside the arrow function is executed
 butInstall.addEventListener('click', async () => {
+    //retrieves the defferedPrompt property from the window object and assigns it to the promptEvent variable. 
     const promptEvent = window.defferedPrompt;
+    //condition checks whether promptEvent is false
 
     if (!promptEvent) {
+        //if promptEvent is not falsy, thsi line calls the prompt() mehtod on the promptEvent.
         promptEvent.prompt();
-
+        //after prompting the user, the line sets the property to null. THis is typically done to ensrue taht installation prompt is not shown again unless triggered
         window.defferedPrompt = null;
-
+        //finally, this line toggles the 'hidden' class to hide the element. This is used to hide the install button.
         butInstall.classList.toggle('hidden', true);
     }
 });
