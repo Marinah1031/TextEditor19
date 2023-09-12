@@ -21,13 +21,14 @@ butInstall.addEventListener('click', async () => {
     //condition checks whether promptEvent is false
 
     if (!promptEvent) {
+        return;
+    }
         //if promptEvent is not falsy, thsi line calls the prompt() mehtod on the promptEvent.
         promptEvent.prompt();
         //after prompting the user, the line sets the property to null. THis is typically done to ensrue taht installation prompt is not shown again unless triggered
         window.defferedPrompt = null;
         //finally, this line toggles the 'hidden' class to hide the element. This is used to hide the install button.
         butInstall.classList.toggle('hidden', true);
-    }
 });
 
 // TODO: Add an handler for the `appinstalled` event

@@ -5,18 +5,22 @@ const { InjectManifest } = require('workbox-webpack-plugin');
 
 // TODO: Add and configure workbox plugins for a service worker and manifest file.
 // TODO: Add CSS loaders and babel to webpack.
-
+//code exports a function that returns a webpack configuration object
 module.exports = () => {
   return {
+    //sets the mode to develpment indicating that this webpack configuration is intended for develpment purposes. 
     mode: 'development',
+    //specifiying the entry points "main" and "install"
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js'
     },
+    //configures the output settings for the bundled files. It specifies that the files will be replaced with the entry point name
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
+    //inserts plugins to be used to generate html files
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
@@ -38,14 +42,14 @@ module.exports = () => {
         publicPath: '/',
         icons: [
           {
-            src: path.resolve("src/images/logo.png"), // Replace with your icon path
-            destination: path.join("assets", "icons"),
+            src: path.resolve('src/images/logo.png'), // Replace with your icon path
+            destination: path.join('assets', 'icons'),
             sizes: [16, 32, 96, 144],
           },
         ],
       }),
     ],
-
+// This specifies the rules for how the different types of files should be handled by webpack
     module: {
       rules: [
         {

@@ -20,9 +20,9 @@ export const putDb = async (content) => {
   //uses openDB function to open IndexedDB database named jate
   const jateDb = await openDB('jate', 1);
   //the transaction is created on the 'jate' object store of the opened database. The 'rewrite' can read and write data
-  const text = jateDb.transaction('jate', 'readwrite');
+  const tx = jateDb.transaction('jate', 'readwrite');
   //within the transaction the jate opject is accesed where teh data will be stored or updated
-  const store = text.objectStore('jate');
+  const store = tx.objectStore('jate');
   //the put method of the object store is used to add or update data and it sepcifies the object to 
   //be added or updated with an id of 1 and content provided as the value
   const request = store.put({ id: 1, value: content });
@@ -40,9 +40,9 @@ export const getDb = async () => {
   //function returns a promise that resolves to the database object 'jateDb, wehn the database is successfully opened
   const jateDb = await openDB('jate', 1);
   //within the database, a transaction is created with a 'readonly' mode so you can only read it
-  const text = jateDb.transaction('jate', 'readonly');
+  const tx = jateDb.transaction('jate', 'readonly');
   //within the transaction, jate is accesed from where the data is retrieved.
-  const store = text.objectStore('jate');
+  const store = tx.objectStore('jate');
   //the get method is used to retrieve data from the object store. Getting id of 1
   const request = store.get(1);
   //await the completion of the get operation by awaiting the request promise.
