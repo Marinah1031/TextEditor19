@@ -22,22 +22,22 @@ module.exports = () => {
     },
     //inserts plugins to be used to generate html files
     plugins: [
-      new HtmlWebpackPlugin({
-        template: './index.html',
-        title: 'J.A.T.E'
-      }),
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'src-sw.js',
       }),
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        title: 'J.A.T.E'
+      }),
       new WebpackPwaManifest({
         fingerprints: false,
         inject: true,
+        background_color: "#28ffe5",
+        theme_color: "#ddb1ff",
         name: "JATE",
         short_name: "JATE",
         description: "",
-        background_color: "#28ffe5",
-        theme_color: "#ddb1ff",
         start_url: '/',
         publicPath: '/',
         icons: [
