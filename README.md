@@ -9,6 +9,7 @@ This application creates note or code snippets with or without an internet conne
 ![Screenshot (117)](https://github.com/Marinah1031/TextEditor19/assets/125934804/8363ecf5-b153-4b13-87bf-0bdf5045bbcf)
 ![Screenshot (118)](https://github.com/Marinah1031/TextEditor19/assets/125934804/14ab62b6-83fc-4e7e-96e9-85fcf06434e4)
 
+Side Note: Even the tutor mentioned that this project has some packaging issues and it is with the installed package itself, but not the code. Overall, there are no issues in the code itself.
 ## Table of Contents
 
 * [Installation](#installation)
